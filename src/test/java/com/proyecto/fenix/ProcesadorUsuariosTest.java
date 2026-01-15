@@ -1,10 +1,11 @@
 package com.proyecto.fenix;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import org.junit.jupiter.api.Test;
 import java.util.List;
 
-public class ProcesadorUsuariosTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
+
+class ProcesadorUsuariosTest {
 
     @Test
     void testProcesarListaComportamientoActual() {
@@ -12,6 +13,7 @@ public class ProcesadorUsuariosTest {
         // Esta es nuestra "red de seguridad"
         List<String> lista = List.of("Ana:1", "Luis:2", "Eva:1", "Juan:99");
         
+        // Cambia .usuarios(lista) por .procesarLista(lista)
         String resultado = procesador.procesarLista(lista);
         
         // El código actual devuelve comas al final, verificamos que siga así
