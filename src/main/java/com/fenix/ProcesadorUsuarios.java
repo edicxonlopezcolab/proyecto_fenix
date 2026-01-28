@@ -7,6 +7,9 @@ import java.util.List;
  */
 public class ProcesadorUsuarios {
 
+    private static final int ROL_ADMIN = 1;
+    private static final int ROL_INVITADO = 2;
+
     // Método con 'code smells': largo, números mágicos, malos nombres.
     public String procesarLista(List<String> dataList) {
         String admins = "";
@@ -14,16 +17,16 @@ public class ProcesadorUsuarios {
 
         for (String u : dataList) {
             String[] parts = u.split(":"); // Formato "nombre:rol"
-            if (parts.length == 2) {
+            if (parts.length == ROL_INVITADO) {
                 String n = parts[0];
-                int r = Integer.parseInt(parts[1]);
+                int r = Integer.parseInt(parts[ROL_ADMIN]);
 
                 // Número Mágico: 1 es Admin
-                if (r == 1) {
+                if (r == ROL_ADMIN) {
                     admins += n + ",";
                 }
                 // Número Mágico: 2 es Invitado
-                else if (r == 2) {
+                else if (r == ROL_INVITADO) {
                     invitados += n + ",";
                 }
             }
