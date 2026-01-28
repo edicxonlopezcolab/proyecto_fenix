@@ -22,3 +22,4 @@ class ProcesadorUsuariosTest {
         assertEquals("Admins: Ana,Eva, | Invitados: Luis,", resultado);
     }
 }
+
