@@ -11,26 +11,34 @@ public class ProcesadorUsuarios {
     private static final int ROL_INVITADO = 2;
 
     // Método con 'code smells': largo, números mágicos, malos nombres.
-    public String procesarLista(List<String> dataList) {
+    public String procesarLista(List<String> usuarios) {
         String admins = "";
         String invitados = "";
 
-        for (String u : dataList) {
+        for (String u : usuarios) {
             String[] parts = u.split(":"); // Formato "nombre:rol"
-            if (parts.length == ROL_INVITADO) {
-                String n = parts[0];
-                int r = Integer.parseInt(parts[ROL_ADMIN]);
+            if (parts.length == 2) {
+                String nombre = parts[0];
+                int rol = Integer.parseInt(parts[1]);
 
                 // Número Mágico: 1 es Admin
-                if (r == ROL_ADMIN) {
-                    admins += n + ",";
+                if (rol == ROL_ADMIN) {
+                    admins += procesarAdmin(nombre);
                 }
                 // Número Mágico: 2 es Invitado
-                else if (r == ROL_INVITADO) {
-                    invitados += n + ",";
+                else if (rol == ROL_INVITADO) {
+                    invitados += procesarInvitado(nombre);
                 }
             }
         }
         return "Admins: " + admins + " | Invitados: " + invitados;
+    }
+
+    private String procesarInvitado(String nombre) {
+        return nombre + ",";
+    }
+
+    private String procesarAdmin(String nombre) {
+        return nombre + ",";
     }
 }
