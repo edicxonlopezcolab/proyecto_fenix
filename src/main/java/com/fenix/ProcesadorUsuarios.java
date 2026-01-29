@@ -62,3 +62,5 @@ public class ProcesadorUsuarios {
         return nombre + ",";
     }
 }
+
+/*Esta es una prueba de verificación integración continua */
