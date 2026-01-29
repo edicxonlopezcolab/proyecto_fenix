@@ -3,14 +3,25 @@ package com.fenix;
 import java.util.List;
 
 /**
- * Esta clase procesa listas de usuarios. Contiene 'code smells' intencionados.
+ * Clase encargada de procesar una lista de usuarios y clasificarlos
+ * según su rol (administrador o invitado).
+ * <p>
+ * Cada usuario se representa como una cadena con el formato:
+ * <code>nombre:rol</code>, donde el rol es un valor numérico.
+ * </p>
  */
 public class ProcesadorUsuarios {
 
     private static final int ROL_ADMIN = 1;
     private static final int ROL_INVITADO = 2;
 
-    // Método con 'code smells': largo, números mágicos, malos nombres.
+    /**
+     * Procesa una lista de usuarios y devuelve una cadena con los usuarios
+     * clasificados por rol.
+     *
+     * @param usuarios lista de usuarios en formato "nombre:rol"
+     * @return una cadena con los administradores y los invitados separados
+     */
     public String procesarLista(List<String> usuarios) {
         String admins = "";
         String invitados = "";
@@ -21,12 +32,9 @@ public class ProcesadorUsuarios {
                 String nombre = parts[0];
                 int rol = Integer.parseInt(parts[1]);
 
-                // Número Mágico: 1 es Admin
                 if (rol == ROL_ADMIN) {
                     admins += procesarAdmin(nombre);
-                }
-                // Número Mágico: 2 es Invitado
-                else if (rol == ROL_INVITADO) {
+                } else if (rol == ROL_INVITADO) {
                     invitados += procesarInvitado(nombre);
                 }
             }
@@ -34,10 +42,22 @@ public class ProcesadorUsuarios {
         return "Admins: " + admins + " | Invitados: " + invitados;
     }
 
+    /**
+     * Procesa un usuario con rol de invitado.
+     *
+     * @param nombre nombre del usuario invitado
+     * @return nombre del invitado seguido de una coma
+     */
     private String procesarInvitado(String nombre) {
         return nombre + ",";
     }
 
+    /**
+     * Procesa un usuario con rol de administrador.
+     *
+     * @param nombre nombre del usuario administrador
+     * @return nombre del administrador seguido de una coma
+     */
     private String procesarAdmin(String nombre) {
         return nombre + ",";
     }
