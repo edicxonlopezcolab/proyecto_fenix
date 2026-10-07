@@ -33,7 +33,7 @@ procesador.procesarLista(usuarios);
    - *Extract Method*: `procesarAdmin(String)` y `procesarInvitado(String)`.
 4. **Verificación**: la prueba sigue pasando, el comportamiento se mantiene.
 5. **Documentación**: Javadoc en la clase y sus métodos, generado con Maven
-   en [`docs/javadoc`](docs/javadoc).
+   en https://edicxonlopezcolab.github.io/proyecto_fenix/javadoc/
 6. **Integración continua**: workflow de GitHub Actions que ejecuta
    `mvn test` en cada push. Se corrigió un error HTTP 403 de la plantilla
    eliminando el paso de envío del grafo de dependencias, que requería
