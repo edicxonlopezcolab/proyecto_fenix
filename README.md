@@ -18,4 +18,4 @@ El proyecto cuenta con un flujo de trabajo automatizado que se dispara con cada 
 3. Informa si los cambios son estables mediante el badge de estado superior.
 
 ## ✒️ Autor
-* **Gabriel Lopez** - *Entornos de Desarrollo y Refactorización*
+* **Gabriel López** - *Entornos de Desarrollo y Refactorización*
